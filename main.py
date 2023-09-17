@@ -18,7 +18,7 @@ model.to("cuda")
 print("Model device:", model.device)
 
 # Load your custom text data
-custom_data = load_dataset("le.utah.gov_Title30.lst", split="train")
+custom_data = load_dataset('text', data_files='le.utah.gov_Title30.lst', split='train')
 train_dataset = custom_data.map(lambda e: tokenizer(e['text'], truncation=True, padding='max_length'), batched=True)
 
 # Training Arguments
