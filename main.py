@@ -6,7 +6,8 @@ from transformers import AutoTokenizer, AutoModelForCausalLM
 # dataset = load_dataset("imdb", split="train")
 
 # If you want to use your custom dataset
-dataset = load_dataset("le.utah.gov_Title30.lst", split="train")
+dataset = load_dataset('text', data_files='le.utah.gov_Title30.lst', split="train")
+
 
 model_id = "tiiuae/falcon-7b"
 
