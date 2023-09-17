@@ -1,0 +1,48 @@
+{
+  "name": "LST",
+  "scopeName": "source.lst",
+  "fileTypes": ["lst"],
+  "patterns": [
+    {
+      "name": "comment.lst",
+      "match": "^\\s*#.*$"
+    },
+    {
+      "name": "keyword.control.title.lst",
+      "match": "^Title:\\s.*$"
+    },
+    {
+      "name": "keyword.control.chapter.lst",
+      "match": "^\\s+Chapter:\\s.*$"
+    },
+    {
+      "name": "keyword.control.part.lst",
+      "match": "^\\s+Part:\\s.*$"
+    },
+    {
+      "name": "keyword.control.section.lst",
+      "match": "^\\s+Section:\\s.*$"
+    },
+    {
+      "name": "keyword.control.subsection.lst",
+      "match": "^\\s+\\d+-\\d+-\\d+\\(\\d+\\):.*$"
+    },
+    {
+      "name": "keyword.control.enacted.lst",
+      "match": "^\\s+Enacted:\\s.*$"
+    },
+    {
+      "name": "string.unquoted.lst",
+      "match": ":\\s.*$"
+    }
+  ],
+  "repository": {
+    "general": {
+      "patterns": [
+        {
+          "include": "#comment"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "name": "lst",
+  "displayName": "lst highlighting",
+  "description": "",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.82.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [{
+      "id": "lst",
+      "aliases": ["Legal Structured Text", "lst"],
+      "extensions": [".lst"],
+      "configuration": "./language-configuration.json"
+    }],
+    "grammars": [{
+      "language": "lst",
+      "scopeName": "source.lst",
+      "path": "./syntaxes/lst.tmLanguage.json"
+    }]
+  }
+}
