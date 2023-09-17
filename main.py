@@ -1,13 +1,13 @@
 from datasets import load_dataset
 from trl import SFTTrainer
 from transformers import AutoTokenizer, AutoModelForCausalLM
+import peft
 
 # If you want to use the IMDB dataset
 # dataset = load_dataset("imdb", split="train")
 
 # If you want to use your custom dataset
 dataset = load_dataset('text', data_files='le.utah.gov_Title30.lst', split="train")
-
 
 model_id = "tiiuae/falcon-7b"
 
