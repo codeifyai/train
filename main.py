@@ -11,7 +11,8 @@ print("Is CUDA available in PyTorch?", torch.cuda.is_available())
 
 # Load tokenizer and model
 tokenizer = AutoTokenizer.from_pretrained("tiiuae/falcon-40b")
-model = AutoModelForSequenceClassification.from_pretrained("tiiuae/falcon-40b")
+model = AutoModelForSequenceClassification.from_pretrained("tiiuae/falcon-40b", trust_remote_code=True)
+model.to("cuda")
 
 # Check model device (should return 'cuda:0' for GPU)
 print("Model device:", model.device)
