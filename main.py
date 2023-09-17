@@ -11,6 +11,7 @@ print("Is CUDA available in PyTorch?", torch.cuda.is_available())
 
 # Load tokenizer and model
 tokenizer = AutoTokenizer.from_pretrained("tiiuae/falcon-7b")
+tokenizer.pad_token = tokenizer.eos_token
 model = AutoModelForSequenceClassification.from_pretrained("tiiuae/falcon-7b", trust_remote_code=True)
 model.to("cuda")
 
