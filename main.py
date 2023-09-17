@@ -52,7 +52,9 @@ process_lst_file('le.utah.gov_Title30.lst', 'processed_dataset.json')
 # Load your processed dataset
 custom_data = load_dataset('json', data_files={'train': 'processed_dataset.json'})
 print("Loaded dataset size:", len(custom_data))
-train_dataset = custom_data['train'].map(lambda e: tokenizer(e['text'], truncation=True, padding='max_length'), batched=True)
+train_dataset = custom_data['train'].map(lambda e: tokenizer(e['text'], truncation=True, padding='max_length'), 
+batched=True)
+print(len(custom_data['train']))
 print("Processed dataset size:", len(train_dataset))
 
 # Training Arguments
