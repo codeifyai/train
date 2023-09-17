@@ -18,7 +18,7 @@ if torch.cuda.device_count() > 1:
     model = torch.nn.DataParallel(model)
 
 # Check model device (should return 'cuda:0' for GPU)
-print("Model device:", model.device)
+print("Model device:", model.module.device)
 
 # Load your custom text data
 custom_data = load_dataset('text', data_files='le.utah.gov_Title30.lst', split='train')
