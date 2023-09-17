@@ -14,6 +14,8 @@ tokenizer = AutoTokenizer.from_pretrained("tiiuae/falcon-7b")
 tokenizer.pad_token = tokenizer.eos_token
 model = AutoModelForSequenceClassification.from_pretrained("tiiuae/falcon-7b", trust_remote_code=True)
 model.to("cuda")
+if torch.cuda.device_count() > 1:
+    model = torch.nn.DataParallel(model)
 
 # Check model device (should return 'cuda:0' for GPU)
 print("Model device:", model.device)
