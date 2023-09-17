@@ -25,7 +25,8 @@ train_dataset = custom_data.map(lambda e: tokenizer(e['text'], truncation=True, 
 # Training Arguments
 training_args = TrainingArguments(
     output_dir="./output",
-    per_device_train_batch_size=2,
+    per_device_train_batch_size=2,    
+    gradient_accumulation_steps=2,
     logging_strategy="step",
     report_to=[],
     num_train_epochs=3,
