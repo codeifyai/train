@@ -21,8 +21,10 @@ if torch.cuda.device_count() > 1:
 print("Model device:", model.module.device)
 
 # Load your custom text data
-custom_data = load_dataset('text', data_files='le.utah.gov_Title30.lst', split='train')
+custom_data = load_dataset('text', data_files='le.utah.gov_Title30.lst')
+print("Loaded dataset size:", len(custom_data))
 train_dataset = custom_data.map(lambda e: tokenizer(e['text'], truncation=True, padding='max_length'), batched=True)
+print("Processed dataset size:", len(train_dataset))
 
 # Training Arguments
 training_args = TrainingArguments(
