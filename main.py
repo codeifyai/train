@@ -1,9 +1,20 @@
+import logging
 from transformers import AutoModelForSequenceClassification, AutoTokenizer, Trainer, TrainingArguments
 from datasets import load_dataset
+import torch
+
+# Set logging level to debug
+logging.basicConfig(level=logging.DEBUG)
+
+# Check if PyTorch sees the GPU
+print("Is CUDA available in PyTorch?", torch.cuda.is_available())
 
 # Load tokenizer and model
 tokenizer = AutoTokenizer.from_pretrained("tiiuae/falcon-40b")
 model = AutoModelForSequenceClassification.from_pretrained("tiiuae/falcon-40b")
+
+# Check model device (should return 'cuda:0' for GPU)
+print("Model device:", model.device)
 
 # Load your custom text data
 custom_data = load_dataset("le.utah.gov_Title30.lst", split="train")
@@ -14,7 +25,6 @@ training_args = TrainingArguments(
     output_dir="./output",
     per_device_train_batch_size=8,
     num_train_epochs=3,
-    device="cuda",
     logging_dir="./logs",
 )
 
